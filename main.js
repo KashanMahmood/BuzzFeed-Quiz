@@ -1,18 +1,28 @@
-// var numQuestions = 3;
-// var qAnswered = new Array();
+var total= 2
 
-// $('body').on('click', function(){
+$('body').on('click', '.answer', function() {
 
-//     for(let qNum= 1; qNum <= numQuestions; qNum++ ){
+    $('input[type="radio"]:checked').each(function() {
 
-//         if($(`input[name='question_$qNum']:checked`).length != 0){
-
-//             document.getElementById(`q${qNum}`)
-
-//         }
-//     }
+        $(this).parent().siblings().each(function(){
     
-//     $(this).parent().find('input:not(:checked)').attr( "disabled", "disabled" );
+            $(this).removeClass('checked');
+            $(this).addClass('unChecked');             
+        });
+
+        $(this).parent().addClass('checked');
+        $(this).parent().removeClass('unChecked');
+    
+    });
+
+});
+
+$('#doneButton').on('click', function() {
+    
+     
+    console.log("Die Bitch")
+
+});
 
 
-// })
+
