@@ -1,0 +1,53 @@
+{
+    "title": "What kind of rodant are you",
+    "outcomes": {
+            "outcome1": {"img": "cavey.jpeg", "text": "outcome 1"},
+            "outcome2": {"img": "beaver.jpeg", "text": "outcome 2"}
+    },
+    "questions": [
+        {
+            "question_name": "question1",
+            "question_img_url": "beaver.jpeg",
+            "answers": [
+                {
+                    "text": "",
+                    "img_url": "ibeaver.jpeg",
+                    "value": "1"
+                },
+                {
+                    "text": "",
+                    "img_url": "cavey.jpeg",
+                    "value": "2"
+                },
+                {
+                    "text": "",
+                    "img_url": "cavey.jpeg",
+                    "vlaue": "3"
+                }
+
+            ]
+        },
+        {
+            "question_name": "question2",
+            "question_img_url": "cavey.jpeg",
+            "answers": [
+                {
+                    "text": "",
+                    "img_url": "ibeaver.jpeg",
+                    "value": "4"
+                },
+                {
+                    "text": "",
+                    "img_url": "cavey.jpeg",
+                    "value": "5"
+                },
+                {
+                    "text": "",
+                    "img_url": "cavey.jpeg",
+                    "vlaue": "6"
+                }
+
+            ]
+
+        }
+    ]}
