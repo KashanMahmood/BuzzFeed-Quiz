@@ -1,41 +1,71 @@
-var total= 2;
 var numQuestions = 0;
 
 $.getJSON("data.json", function(data) {
- 
-    // Wrap each question section into a div with class "section"
-    // Then in that section create a div class "question" and give it the value of the question name
-    // Then create a div class answers:
-    //     for each answer of that question,
-    //         create a label with class "ansewr"
-    //         inside the lab addthe answer Image
-    //         create an input putton type radio
+   
+    
+    const title = document.createElement("div");
+    title.classList.add("title");
+    title.innerHTML = data.title;
+    title.style.backgroundImage = `url('${data.title_img}')`;
+    document.body.appendChild(title);
 
 
-    (data.questions).each(function(){
+    (data.questions).map(function(question){
+        numQuestions += 1;
+
+
+        // Create a new section div and set its class to
+        const newSection = document.createElement("div");
+        newSection.classList.add("section");
         
-        const newSection = document.body.createElement("div").addClass("section");
-        const newQuestion = document.body.createElement('div').addClass('question').appendChild( $(this).question_name, $(this).question_img_url );
-        const answers = document.body.createElement("div").addClass("answers")
+        // Create a new question div object and set class to "question"
+        const newQuestion = document.createElement("div");
+        newQuestion.classList.add("question");
+        newQuestion.innerHTML =  `<div>${question.question_name}</div>`;
+        
+        
+        const answers = document.createElement("div");
+        answers.classList.add("answers");
 
-        ($(this).answers).each(function(){
+        
+        (question.answers).map(function(answer){
             
-            // still need to worry about adding value
-            const answer = document.createElement("label").addClass("answer");
-            answer.appendChild( $(this).text, $(this).img_url);
-            var input = $('<input type="button" value="10" class="answerInput" />');
-            input.appendTo(answer)
-     
+            console.log(answer);
+            const currAnswer = document.createElement("label");
+            currAnswer.classList.add("answer");
+            currAnswer.innerHTML = `<div class= "labelText" >${answer.text}</div>  <input type="radio" value=${answer.value} class="answerInput" />` ;
+            currAnswer.style.backgroundImage = `url('${answer.img_url}')`;
+            currAnswer.style.backgroundSize = `cover`;
+            answers.appendChild(currAnswer)
+            
         });
-        newSection.appendChild(newQuestion, answers);
 
+        newSection.appendChild(newQuestion);
+        newSection.appendChild(answers);
+        
+
+        
+        document.body.appendChild(newSection);
+
+        console.log(newSection);
+        console.log(newQuestion);
     });
+    
+    const button = document.createElement("div");
+    button.classList.add("button");
+    button.innerHTML = ` <button id="doneButton" type="button">Submit Answers</button>`;
+    document.body.appendChild(button);
+
 });
 
+// Why does this not work anymore bruhhhhhh
 
 $('body').on('click', '.answer', function() {
-
+     
+    
     $('input[type="radio"]:checked').each(function() {
+
+        console.log("HEHE")
 
         $(this).parent().siblings().each(function(){
     
@@ -51,8 +81,7 @@ $('body').on('click', '.answer', function() {
 });
 
 $('#doneButton').on('click', function() {
-    
-     
+ 
     console.log("Die Bitch")
 
 });
