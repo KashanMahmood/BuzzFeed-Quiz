@@ -1,19 +1,26 @@
 {
     "title": "Which ivy are you?",
-    "title_img": "img/title.jpeg",
-    "outcomes": {
-            "outcome1": {"img": "cavey.jpeg", "text": "outcome 1"},
-            "outcome2": {"img": "beaver.jpeg", "text": "outcome 2"}
-    },
+    "title_img": "img/backgr.jpeg",
+    "outcomes": [
+            {"img": "img/dartmouth.jpeg", "text": "You are Dartmouth!"},
+            {"img": "img/harvard.jpeg", "text": "You are Harvard!"},
+            {"img": "img/princeton.jpeg", "text": "You are Princeton!"},
+            {"img": "img/columbia.jpeg", "text": "You are Columbia!"},
+            {"img": "img/cornell.jpeg", "text": "You are Cornell!"},
+            {"img": "img/brown.jpeg", "text": "You are Brown!"},
+            {"img": "img/yale.png", "text": "You are Yale!"},
+            {"img": "img/upenn.jpeg", "text": "You are UPenn!"}
+        ],
+    
     "questions": [
         {
             "question_name": "What is your favorite season?",
-            "question_img_url": "beaver.jpeg",
+            "question_img_url": "",
             "answers": [
                 {
                     "text": "Summer",
                     "img_url": "img/summer.webp",
-                    "value": "700"
+                    "value": "1"
                 },
                 {
                     "text": "Spring",
@@ -23,39 +30,39 @@
                 {
                     "text": "Fall",
                     "img_url": "img/fall.jpeg",
-                    "value": "11"
+                    "value": "2"
                 },
                 {
                     "text": "Winter",
                     "img_url": "img/winter.webp",
-                    "value": "16"
+                    "value": "0"
                 }
 
             ]
         },
         {
             "question_name": "Which meme do you find the funniest?",
-            "question_img_url": "cavy.jpeg",
+            "question_img_url": "",
             "answers": [
                 {
                     "text": "",
                     "img_url": "img/late.jpeg",
-                    "value": "2"
+                    "value": "3"
                 },
                 {
                     "text": "",
                     "img_url": "img/afford_cat.jpeg",
-                    "value": "50"
+                    "value": "4"
                 },
                 {
                     "text": "",
                     "img_url": "img/sleep.jpeg",
-                    "value": "12"
+                    "value": "5"
                 },
                 {
                     "text": "",
                     "img_url": "img/toe.jpeg",
-                    "value": "17"
+                    "value": "7"
                 }
 
             ]
@@ -63,55 +70,55 @@
         },
         {
             "question_name": "What is your favorite color?",
-            "question_img_url": "cavy.jpeg",
+            "question_img_url": "",
             "answers": [
                 {
                     "text": "Blue",
                     "img_url": "img/blue.jpeg",
-                    "value": "500"
+                    "value": "7"
                 },
                 {
                     "text": "Green",
                     "img_url": "img/green.jpeg",
-                    "value": "8"
+                    "value": "0"
                 },
                 {
                     "text": "Red",
                     "img_url": "img/red.jpeg",
-                    "value": "13"
+                    "value": "1"
                 },
                 {
                     "text": "Yellow",
                     "img_url": "img/yellow.jpeg",
-                    "value": "18"
+                    "value": "3"
                 }
 
             ]
 
         },
         {
-            "question_name": "What is 1+2?",
-            "question_img_url": "cavy.jpeg",
+            "question_name": "What is 1+1?",
+            "question_img_url": "",
             "answers": [
                 {
                     "text": "Ummm...2",
                     "img_url": "",
-                    "value": "3"
+                    "value": "2"
                 },
                 {
                     "text": "11",
                     "img_url": "",
-                    "value": "8"
+                    "value": "3"
                 },
                 {
                     "text": "Dumb Question",
                     "img_url": "",
-                    "value": "13"
+                    "value": "0"
                 },
                 {
                     "text": "Ur mom",
                     "img_url": "",
-                    "value": "400"
+                    "value": "4"
                 }
 
             ]
@@ -119,27 +126,27 @@
         },
         {
             "question_name": "What is your favorite sport?",
-            "question_img_url": "cavy.jpeg",
+            "question_img_url": "",
             "answers": [
                 {
                     "text": "Baseball",
                     "img_url": "img/baseball.jpeg",
-                    "value": "3"
+                    "value": "6"
                 },
                 {
                     "text": "Basketball",
                     "img_url": "img/basketball.webp",
-                    "value": "8"
+                    "value": "7"
                 },
                 {
                     "text": "Football",
                     "img_url": "img/football.webp",
-                    "value": "13"
+                    "value": "0"
                 },
                 {
                     "text": "Lacrosse",
                     "img_url": "img/lax.jpeg",
-                    "value": "100"
+                    "value": "1"
                 }
 
             ]
@@ -147,27 +154,27 @@
         },
         {
             "question_name": "Is cereal soup?",
-            "question_img_url": "cavy.jpeg",
+            "question_img_url": "",
             "answers": [
                 {
                     "text": "Of course",
                     "img_url": "",
-                    "value": "3"
+                    "value": "2"
                 },
                 {
                     "text": "Absolutely NOT",
                     "img_url": "",
-                    "value": "8"
+                    "value": "3"
                 },
                 {
                     "text": "UMMM WTF",
                     "img_url": "",
-                    "value": "200"
+                    "value": "0"
                 },
                 {
                     "text": "I dont care",
                     "img_url": "",
-                    "value": "18"
+                    "value": "7"
                 }
 
             ]
@@ -176,7 +183,7 @@
 
         {
             "question_name": "Best TV show?",
-            "question_img_url": "cavy.jpeg",
+            "question_img_url": "",
             "answers": [
                 {
                     "text": "FRIENDS",
@@ -186,17 +193,17 @@
                 {
                     "text": "Full House",
                     "img_url": "img/fHouse.webp",
-                    "value": "8"
+                    "value": "6"
                 },
                 {
                     "text": "Vampire Diaries",
                     "img_url": "img/tvd.jpeg",
-                    "value": "750"
+                    "value": "0"
                 },
                 {
                     "text": "I don't watch TV",
                     "img_url": "img/static.png",
-                    "value": "18"
+                    "value": "1"
                 }
 
             ]

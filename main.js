@@ -1,4 +1,5 @@
 var numQuestions = 0;
+var scoreTracker =[];
 
 $.getJSON("data.json", function(data) {
    
@@ -11,8 +12,9 @@ $.getJSON("data.json", function(data) {
 
 
     (data.questions).map(function(question){
+        
+        //keep track of the num of questions
         numQuestions += 1;
-
 
         // Create a new section div and set its class to
         const newSection = document.createElement("div");
@@ -21,12 +23,12 @@ $.getJSON("data.json", function(data) {
         // Create a new question div object and set class to "question"
         const newQuestion = document.createElement("div");
         newQuestion.classList.add("question");
-        newQuestion.innerHTML =  `<div>${question.question_name}</div>`;
-        
+        newQuestion.innerHTML =  `<div class= "ques">${question.question_name}</div>`;
+        newQuestion.style.backgroundImage = `url('${question.question_img_url}')`;
+        newQuestion.style.backgroundSize = `cover`;
         
         const answers = document.createElement("div");
         answers.classList.add("answers");
-
         
         (question.answers).map(function(answer){
             
@@ -50,41 +52,111 @@ $.getJSON("data.json", function(data) {
         console.log(newSection);
         console.log(newQuestion);
     });
+
+    for (i=0; i< (data.outcomes).length; ++i){
+        scoreTracker[i]=0;
+    }
     
-    const button = document.createElement("div");
-    button.classList.add("button");
-    button.innerHTML = ` <button id="doneButton" type="button">Submit Answers</button>`;
-    document.body.appendChild(button);
+    // citing modal code: https://www.w3schools.com/howto/howto_css_modals.asp
+    const submit = document.createElement("div");
+    submit.classList.add("submit");
+    
+    submit.innerHTML = ` <button id="myBtn">Submit Answers</button>`;
+    
+    // modal
+
+    const modal= document.createElement("div");
+    modal.classList.add("modal");
+    modal.id= "myModal";
+    modal.style.display = "none";
+
+    // modal contant
+    const content= document.createElement("div");
+    content.classList.add("modCont");
+    content.innerHTML = `<span class="close">&times;</span> <img id="result-img" src="" /> <div id="result-text" />`;
+
+    modal.appendChild(content);
+    submit.appendChild(modal);
+    document.body.appendChild(submit);
 
 });
 
-// Why does this not work anymore bruhhhhhh
 
-$('body').on('click', '.answer', function() {
-     
+
+$(document).on('click', ".answer", (e) => {
+    let element = e.target;
     
-    $('input[type="radio"]:checked').each(function() {
-
-        console.log("HEHE")
-
-        $(this).parent().siblings().each(function(){
+    if (element.tagName != "LABEL"){
+        element = element.parentElement;
+    }
     
-            $(this).removeClass('checked');
-            $(this).addClass('unChecked');             
-        });
+    $(element).removeClass('unChecked');
+    $(element).addClass('checked');
 
-        $(this).parent().addClass('checked');
-        $(this).parent().removeClass('unChecked');
-    
+
+    $(element).siblings().each(function(){
+
+        $(this).addClass('unChecked');
+        $(this).removeClass('checked');
     });
 
 });
 
-$('#doneButton').on('click', function() {
- 
-    console.log("Die Bitch")
+// citing modal code: https://www.w3schools.com/howto/howto_css_modals.asp
+
+$(document).on('click', "#myBtn", function() {
+
+
+    $('input[type=radio]:checked').map(function(i ,radio) {
+        scoreTracker[radio.value]+= 1;
+    });
+
+    
+    if ($(`.checked`).length == numQuestions){
+        $('input[type=radio]:checked').map(function(i ,radio) {
+            scoreTracker[radio.value]+= 1;
+        });
+    
+        const max = Math.max.apply(Math,scoreTracker);
+        console.log(scoreTracker);
+        console.log(max);
+        const maxIndex = scoreTracker.indexOf(max);
+        var image;
+
+        $.getJSON("data.json", function(data) {
+            image = data.outcomes[maxIndex];
+            
+            document.getElementById("result-img").src = image.img;
+            document.getElementById("result-text").innerHTML = image.text
+        });        
+        
+    }
+    else{
+
+        document.getElementById("result-img").src = "img/ohno.jpeg";
+        document.getElementById("result-text").innerHTML = "Please answer all questions!"
+    }
+
+  
+
+    document.getElementById("myModal").style.display = "block";
+    document.getElementById("myModal").style.color = "black";
+
+
 
 });
+
+$(document).on('click', ".close", function() {
+    document.getElementById("myModal").style.display = "none";
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == document.getElementById("myModal")) {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+}
 
 
 
